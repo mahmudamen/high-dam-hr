@@ -10,18 +10,19 @@
                     <field name="national_id"/>
                     <field name="age"/>
                 </xpath>
-                <xpath expr="//page[@name='hr_settings']//field[@name='user_id']" position="after" >
+                <xpath expr="//page[@name='hr_settings']//field[@name='user_id']" position="after">
                     <field name="current_status"/>
                     <field name="start_date"/>
                     <field name="hiring_date"/>
                 </xpath>
-                <xpath expr="//page[@name='hr_settings']//field[@name='hiring_date']" position="after" >
-
-                        <field name="resolution_id"/>
-                        <field name="resolution_date"/>
-                        <field name="qualitative_group"/>
-
-
+                <xpath expr="//page[@name='hr_settings']//field[@name='hiring_date']" position="after">
+                    <field name="qualitative_group"/>
+                    <field name="job_name"/>
+                    <field name="job_type"/>
+                    <field name="degree"/>
+                    <field name="level_id"/>
+                    <field name="level_date_got"/>
+                    <field name="military_status"/>
                 </xpath>
             </field>
         </record>

@@ -1,2 +1,16 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_hr_qualitative_group,hr.qualitative.group,model_hr_qualitative_group,base.group_user,1,1,1,1
+
+access_hr_degree,hr.degree,model_hr_degree,base.group_user,1,1,1,1
+
+access_hr_level,hr.level,model_hr_level,base.group_user,1,1,1,1
+
+access_hr_milirary,hr.milirary,model_hr_milirary,base.group_user,1,1,1,1
+
+access_hr_course,hr.course,model_hr_course,base.group_user,1,1,1,1
+
+access_hr_sufficiency_report,hr.sufficiency.report,model_hr_sufficiency_report,base.group_user,1,1,1,1
+
+access_hr_sufficiency_report_line,hr.sufficiency.report.line,model_hr_sufficiency_report_line,base.group_user,1,1,1,1
+
+access_hr_report_line,hr.report.line,model_hr_report_line,base.group_user,1,1,1,1

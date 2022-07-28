@@ -25,8 +25,10 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
+        'views/main_menu.xml',
         'views/hr_employee.xml',
-        'views/qualitative_group.xml'
+        'views/qualitative_group.xml',
+        'views/hr_sufficiency_report.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

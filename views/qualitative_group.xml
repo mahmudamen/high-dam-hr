@@ -6,7 +6,7 @@
             <field name="name">hr.qualitative.group.form</field>
             <field name="model">hr.qualitative.group</field>
             <field name="arch" type="xml">
-                <form string="hr qualitative group">
+                <form string="المجموعة النوعية">
                     <sheet>
                         <div class="oe_title">
                             <label for="qualitative_group"/>
@@ -67,7 +67,7 @@
             </field>
         </record>
 
-        <menuitem name="qualitative_group" id="qualitative_group_menu" parent="hr.menu_human_resources_configuration" action="qualitative_group_act_window"/>
+        <menuitem name="المجموعة النوعية" id="qualitative_group_menu" parent="hr.menu_human_resources_configuration" action="qualitative_group_act_window"/>
 
     </data>
 </odoo>

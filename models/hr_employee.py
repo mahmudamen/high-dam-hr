@@ -19,31 +19,60 @@ class HrEmployee(models.Model):
             else:
                 rec.age = "No Date Of Birth!!"
 
-    national_id = fields.Char(string="national Id", required=True)
-    code = fields.Char(string="code", required=True)
-    age = fields.Char(compute=onchange_age, string="Age", store=True)
-    start_date = fields.Date(string='start date')
-    hiring_date = fields.Date(string='hiring date')
-    current_status = fields.Selection([('basic', 'basic'),
-                                       ('mandate', 'mandate'),
-                                       ('loan', 'loan'),
-                                       ('Appendix', 'Appendix'),
-                                       ('stoped', 'stoped')],
-                                      string="current status")
-    resolution_id = fields.Char(string='resolution id')
-    resolution_date = fields.Date(string='resolution date')
-    qualitative_group = fields.Many2one('hr.qualitative.group', string='qualitative group')
+    national_id = fields.Char(string="الرقم القومي")
+    code = fields.Char(string="كود الموظف", required=True)
+    age = fields.Char(compute=onchange_age, string="العمر", store=True)
+    start_date = fields.Date(string='بدء العمل')
+    hiring_date = fields.Date(string='تاريخ التعيين')
+    current_status = fields.Selection([('basic', 'اساسي'),
+                                       ('mandate', 'منتدب'),
+                                       ('loan', 'اعارة'),
+                                       ('Appendix', 'ملحق'),
+                                       ('stoped', 'متوقف')],
+                                      string="الحالة الحالية")
+    job_type = fields.Selection([('manager', 'القيادية والاشرافية'),
+                                       ('specialist', 'تخصصية'),
+                                       ('user', 'فنية ومكتبية'),
+                                       ('worker', 'حرفية وخدمات معاونة')],
+                                      string="نوع الوظيفة")
+    qualitative_group = fields.Many2one('hr.qualitative.group', string='المجموعة النوعية')
+    degree = fields.Many2one('hr.degree',string='المؤهل الدراسي')
+    level_id = fields.Many2one('hr.level',string='المستوي الوظيفي')
+    level_date_got = fields.Date(string='تاريخ الحصول عليها')
+    military_status = fields.Many2one('hr.milirary',string='الموقف من التجنيد')
+    job_name = fields.Char(string='المسمي الوظيفي')
+    sufficiency_report = fields.One2many('hr.sufficiency.report', 'sufficiency_report_id', string='تقرير الكفاية', copy=True, readonly=True,
+        states={'draft': [('readonly', False)]})
 
     @api.onchange('national_id')
     def required_digits(self):
-        if len(self.national_id) == 14 and self.national_id.isnumeric():
-            return print('true')
-        else:
-            raise UserError(_("national id must be 14 digits and numbers  %s" % self.national_id))
+        if self.national_id:
+            if len(self.national_id) == 14 and self.national_id.isnumeric():
+                return print('true')
+            else:
+                raise UserError(_("يجب ان يكون الرقم القومي 14 رقما  %s" % self.national_id))
 
 
 class QualitativeGroup(models.Model):
     _name = 'hr.qualitative.group'
     _rec_name = 'qualitative_group'
 
-    qualitative_group = fields.Char(string='qualitative group')
+    qualitative_group = fields.Char(string='المجموعة النوعية')
+
+class Degree(models.Model):
+    _name = 'hr.degree'
+    _rec_name = 'name'
+
+    name = fields.Char(string='المؤهل الدراسي')
+
+class Level(models.Model):
+    _name = 'hr.level'
+    _rec_name = 'name'
+
+    name = fields.Char(string='المستوي الوظيفي')
+
+class Milirary(models.Model):
+    _name = 'hr.milirary'
+    _rec_name = 'name'
+
+    name = fields.Char(string='الموقف من التجنيد')
