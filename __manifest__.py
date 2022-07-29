@@ -29,6 +29,7 @@
         'views/hr_employee.xml',
         'views/qualitative_group.xml',
         'views/hr_sufficiency_report.xml',
+        'report/print_report_emp.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

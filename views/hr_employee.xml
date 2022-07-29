@@ -6,6 +6,9 @@
             <field name="model">hr.employee</field>
             <field name="inherit_id" ref="hr.view_employee_form"/>
             <field name="arch" type="xml">
+                <header>
+                    <button name="print_report" type="object" string="بيان حالة وظيفية" class="oe_highlight"/>
+                </header>
                 <xpath expr="//page[@name='personal_information']//field[@name='birthday']" position="after" >
                     <field name="national_id"/>
                     <field name="age"/>
@@ -25,6 +28,16 @@
                     <field name="military_status"/>
                 </xpath>
             </field>
+        </record>
+
+        <record id="action_emp_id_card" model="ir.actions.report">
+           <field name="name">بيان حالة وظيفية</field>
+           <field name="model">hr.employee</field>
+           <field name="report_type">qweb-pdf</field>
+           <field name="report_name">high_dam_hr.report_emp_id_card</field>
+           <field name="report_file">high_dam_hr.report_emp_id_card</field>
+           <field name="print_report_name">'Emp - %s' % (object.name)</field>
+           <field name="binding_model_id" ref="model_hr_employee"/>
         </record>
     </data>
 </odoo>

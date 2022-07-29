@@ -14,3 +14,7 @@ access_hr_sufficiency_report,hr.sufficiency.report,model_hr_sufficiency_report,b
 access_hr_sufficiency_report_line,hr.sufficiency.report.line,model_hr_sufficiency_report_line,base.group_user,1,1,1,1
 
 access_hr_report_line,hr.report.line,model_hr_report_line,base.group_user,1,1,1,1
+
+access_hr_behavior_report_line,hr.behavior.report.line,model_hr_behavior_report_line,base.group_user,1,1,1,1
+
+access_hr_behavior_line,hr.behavior.line,model_hr_behavior_line,base.group_user,1,1,1,1

@@ -44,6 +44,7 @@ class HrEmployee(models.Model):
     sufficiency_report = fields.One2many('hr.sufficiency.report', 'sufficiency_report_id', string='تقرير الكفاية', copy=True, readonly=True,
         states={'draft': [('readonly', False)]})
 
+
     @api.onchange('national_id')
     def required_digits(self):
         if self.national_id:
@@ -52,6 +53,8 @@ class HrEmployee(models.Model):
             else:
                 raise UserError(_("يجب ان يكون الرقم القومي 14 رقما  %s" % self.national_id))
 
+    def print_report(self):
+        return self.env.ref('high_dam_hr.action_emp_id_card').report_action(self)
 
 class QualitativeGroup(models.Model):
     _name = 'hr.qualitative.group'
@@ -76,3 +79,4 @@ class Milirary(models.Model):
     _rec_name = 'name'
 
     name = fields.Char(string='الموقف من التجنيد')
+

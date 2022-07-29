@@ -34,7 +34,21 @@
                             </group>
                         </group>
                         <notebook>
-                            <page id="invoice_tab"
+                            <page id="emp_tab"
+                                  string="بيانات المقوم"
+                                  >
+                                <group>
+                                    <group>
+                                        <field name="emp_name"/>
+                                        <field name="emp_related"/>
+                                        <field name="emp_rate"/>
+                                    </group>
+
+                                </group>
+
+
+                            </page>
+                            <page id="sufficiency_tab"
                                   string="الاهداف والاستراتيجية"
                                   >
                                 <field name="sufficiency_report_line_ids"
@@ -56,6 +70,29 @@
                                         <field name="remark" string="ملاحظات"/>
 
 
+                                    </tree>
+                                </field>
+
+                            </page>
+                             <page id="behavior_tab"
+                                  string="الكفاءة السلوكية"
+                                  >
+                                <field name="behavior_report_line_ids"
+                                       widget="section_and_note_one2many"
+                                       mode="tree"
+                                       >
+                                    <tree editable="bottom" string="العناصر">
+                                        <control>
+                                            <create name="add_line_control" string="اضافة سطر"/>
+                                            <create name="add_section_control" string="سكشن" context="{'default_display_type': 'line_section'}"/>
+                                            <create name="add_note_control" string="ملاحظات" context="{'default_display_type': 'line_note'}"/>
+                                        </control>
+                                        <field name="report_id" invisible="1"/>
+                                        <field name="name"
+                                               string="العنصر"
+                                               />
+                                        <field name="amount" string="الدرجة"/>
+                                        <field name="remark" string="ملاحظات"/>
                                     </tree>
                                 </field>
 
@@ -99,6 +136,7 @@
                 <graph string="تقرير الكفاية">
                     <field name="emp_id"/>
                     <field name="hi_level" type="measure"/>
+                    <field name="score" type="measure"/>
                 </graph>
             </field>
         </record>
@@ -110,6 +148,7 @@
                 <pivot string="تقرير الكفاية">
                     <field name="emp_id" type="row"/>
                     <field name="hi_level" type="measure"/>
+                    <field name="score" type="measure"/>
                 </pivot>
             </field>
         </record>
@@ -139,6 +178,10 @@
                                 context="{'group_by':'year'}"/>
                         <filter string="الكورس" name="course_id" domain="[]"
                                 context="{'group_by':'course_id'}"/>
+                        <filter string="القسم" name="department_id" domain="[]"
+                                context="{'group_by':'department_id'}"/>
+                        <filter string="المدير" name="partner_id" domain="[]"
+                                context="{'group_by':'partner_id'}"/>
 
                     </group>
                 </search>
