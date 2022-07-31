@@ -33,7 +33,14 @@ class SufficiencyReport(models.Model):
                                        ('month', 'شهري'),
                                        ('year', 'كل بضعة شهور')],
                                       string="معدل التعامل مع الموظف")
-
+    state = fields.Selection(selection=[
+            ('draft', 'درافت'),
+            ('4', 'نموذج 4'),
+            ('5', 'نموذج 5'),
+            ('6', 'نموذج 6'),
+            ('7', 'نموذج 7'),
+        ], string='Status', required=True, readonly=True, copy=False, tracking=True,
+        default='draft')
 
     @api.onchange('sufficiency_report_line_ids','behavior_report_line_ids')
     def _iscore_sum(self):
@@ -46,7 +53,79 @@ class SufficiencyReport(models.Model):
             t += total
         self.write({'score': t})
 
+    def formal_four_cancel(self):
+        for line in self.sufficiency_report_line_ids:
+            line.unlink()
+        for line in self.behavior_report_line_ids:
+            line.unlink()
+        self.write({'state':'draft'})
 
+    def formal_four(self):
+        if not self.sufficiency_report_line_ids:
+            list = self.env['hr.report.line'].search([('formal_four', '=', True)])
+            line = self.env['hr.sufficiency.report.line']
+            for i in list:
+                print(i.name)
+                line.create({'report_id':self.id,'name':i.id})
+
+        if not self.behavior_report_line_ids:
+            list_beh = self.env['hr.behavior.line'].search([('formal_four', '=', True)])
+            line_beh = self.env['hr.behavior.report.line']
+            for i in list_beh:
+                print(i.name)
+                line_beh.create({'report_id':self.id,'name':i.id})
+        self.message_post(body='اضافة نموذج رقم اربعة')
+        self.write({'state':'4'})
+    def formal_five(self):
+        if not self.sufficiency_report_line_ids:
+            list = self.env['hr.report.line'].search([('formal_five', '=', True)])
+            line = self.env['hr.sufficiency.report.line']
+            for i in list:
+                print(i.name)
+                line.create({'report_id':self.id,'name':i.id})
+
+        if not self.behavior_report_line_ids:
+            list_beh = self.env['hr.behavior.line'].search([('formal_five', '=', True)])
+            line_beh = self.env['hr.behavior.report.line']
+            for i in list_beh:
+                print(i.name)
+                line_beh.create({'report_id':self.id,'name':i.id})
+        self.message_post(body='اضافة نموذج رقم خمسة ')
+        self.write({'state':'5'})
+
+    def formal_six(self):
+        if not self.sufficiency_report_line_ids:
+            list = self.env['hr.report.line'].search([('formal_six', '=', True)])
+            line = self.env['hr.sufficiency.report.line']
+            for i in list:
+                print(i.name)
+                line.create({'report_id':self.id,'name':i.id})
+
+        if not self.behavior_report_line_ids:
+            list_beh = self.env['hr.behavior.line'].search([('formal_six', '=', True)])
+            line_beh = self.env['hr.behavior.report.line']
+            for i in list_beh:
+                print(i.name)
+                line_beh.create({'report_id':self.id,'name':i.id})
+        self.message_post(body='اضافة نموذج رقم ستة')
+        self.write({'state':'6'})
+
+    def formal_seven(self):
+        if not self.sufficiency_report_line_ids:
+            list = self.env['hr.report.line'].search([('formal_seven', '=', True)])
+            line = self.env['hr.sufficiency.report.line']
+            for i in list:
+                print(i.name)
+                line.create({'report_id':self.id,'name':i.id})
+
+        if not self.behavior_report_line_ids:
+            list_beh = self.env['hr.behavior.line'].search([('formal_seven', '=', True)])
+            line_beh = self.env['hr.behavior.report.line']
+            for i in list_beh:
+                print(i.name)
+                line_beh.create({'report_id':self.id,'name':i.id})
+        self.message_post(body='اضافة نموذج رقم سبعة')
+        self.write({'state':'7'})
 
 class Course(models.Model):
     _name = 'hr.course'
@@ -59,7 +138,10 @@ class HrReportLine(models.Model):
     _rec_name = 'name'
 
     name = fields.Char(string='التقييم')
-
+    formal_four = fields.Boolean('نموذج رقم اربعة')
+    formal_five = fields.Boolean('نموذج رقم خمسة')
+    formal_six = fields.Boolean('نموذج رقم ستة')
+    formal_seven = fields.Boolean('نموذج رقم سبعة')
 
 class HrSufficiencyReportLine(models.Model):
     _name = 'hr.sufficiency.report.line'
@@ -74,6 +156,11 @@ class HrBehaviorLine(models.Model):
     _rec_name = 'name'
 
     name = fields.Char(string='التقييم')
+    formal_four = fields.Boolean('نموذج رقم اربعة')
+    formal_five = fields.Boolean('نموذج رقم خمسة')
+    formal_six = fields.Boolean('نموذج رقم ستة')
+    formal_seven = fields.Boolean('نموذج رقم سبعة')
+
 class HrBehaviorreportLine(models.Model):
     _name = 'hr.behavior.report.line'
 

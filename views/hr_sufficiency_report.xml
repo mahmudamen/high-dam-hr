@@ -6,7 +6,17 @@
             <field name="name">hr.sufficiency.report.form</field>
             <field name="model">hr.sufficiency.report</field>
             <field name="arch" type="xml">
+
                 <form string="تقرير الكفاية">
+                <header>
+                    <button name="formal_four" type="object" string="نموذج رقم 4" attrs="{'invisible':[('state','!=','draft')]}" class="oe_highlight"/>
+                    <button name="formal_five" type="object" string="نموذج رقم 5" attrs="{'invisible':[('state','!=','draft')]}" class="oe_highlight"/>
+                    <button name="formal_six" type="object" string="نموذج رقم 6" attrs="{'invisible':[('state','!=','draft')]}" class="oe_highlight"/>
+                    <button name="formal_seven" type="object" string="نموذج رقم 7" attrs="{'invisible':[('state','!=','draft')]}" class="oe_highlight"/>
+
+                    <button name="formal_four_cancel" type="object" string="الغاء" attrs="{'invisible':[('state','=','draft')]}" />
+                    <field name="state" widget="statusbar" statusbar_visible="draft,4,5,6,7" />
+                </header>
                     <sheet>
                         <div class="oe_title">
                             <label for="emp_id"/>
@@ -122,6 +132,7 @@
                     <field name="hi_level"/>
                     <field name="course_id" widget="many2many_tags"/>
                     <field name="partner_id"  />
+                    <field name="state"/>
 
                 </tree>
             </field>
@@ -135,6 +146,7 @@
             <field name="arch" type="xml">
                 <graph string="تقرير الكفاية">
                     <field name="emp_id"/>
+                    <field name="state"/>
                     <field name="hi_level" type="measure"/>
                     <field name="score" type="measure"/>
                 </graph>
@@ -147,6 +159,7 @@
             <field name="arch" type="xml">
                 <pivot string="تقرير الكفاية">
                     <field name="emp_id" type="row"/>
+                    <field name="state" type="row"/>
                     <field name="hi_level" type="measure"/>
                     <field name="score" type="measure"/>
                 </pivot>
@@ -168,6 +181,7 @@
                     <field name="course_id" string="الكورس"/>
                     <field name="partner_id" string="المدير"/>
                     <field name="department_id" string="القسم"/>
+                    <field name="state" string="نموذج"/>
                     <newline/>
                     <group expand="1" string="مجموعة">
                         <filter string="الموظف" name="emp_id" domain="[]"
@@ -182,6 +196,8 @@
                                 context="{'group_by':'department_id'}"/>
                         <filter string="المدير" name="partner_id" domain="[]"
                                 context="{'group_by':'partner_id'}"/>
+                        <filter string="نموذج" name="state" domain="[]"
+                                context="{'group_by':'state'}"/>
 
                     </group>
                 </search>

@@ -103,10 +103,10 @@
 					<br/>
 					<br/>
 				<span/>
-					<table style="height: auto; width: auto;margin: 10px;padding:10px; border: 1px solid black;">
+					<table style="height: auto; width: auto;margin: 10px;padding:10px; ">
 
-						<tr style="height: auto; font-weight:bold; width: auto; border: 1px solid black;">
-							<td style="vertical-align: top;border: 1px solid black;">
+						<tr style="height: auto; font-weight:bold; width: auto; ">
+							<td style="vertical-align: top;">
 								<div style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px; font-size:16px">
 									<b>
 										المختص
