@@ -43,6 +43,7 @@ class HrEmployee(models.Model):
     job_name = fields.Char(string='المسمي الوظيفي')
     sufficiency_report = fields.One2many('hr.sufficiency.report', 'sufficiency_report_id', string='تقرير الكفاية', copy=True, readonly=True,
         states={'draft': [('readonly', False)]})
+    rate_ids = fields.Many2many('hr.sufficiency.report')
 
 
     @api.onchange('national_id')
@@ -54,6 +55,20 @@ class HrEmployee(models.Model):
                 raise UserError(_("يجب ان يكون الرقم القومي 14 رقما  %s" % self.national_id))
 
     def print_report(self):
+        self.write({'rate_ids':False})
+
+        last_id = self.env['hr.sufficiency.report'].search([('emp_id','=',self.id)])
+        max_val = []
+        for statement in last_id:
+            max_val.append(int(statement.year))
+        last_year = max(max_val)
+        last_last_year = last_year - 1
+        first = self.env['hr.sufficiency.report'].search([('emp_id', '=', self.id),('year','=',last_year)])
+        second = self.env['hr.sufficiency.report'].search([('emp_id', '=', self.id), ('year', '=', last_last_year)])
+        self.rate_ids = [(4, first.id),(4,second.id)]
+
+
+
         return self.env.ref('high_dam_hr.action_emp_id_card').report_action(self)
 
 class QualitativeGroup(models.Model):

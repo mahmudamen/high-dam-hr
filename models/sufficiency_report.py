@@ -5,7 +5,7 @@ class SufficiencyReport(models.Model):
     _name = 'hr.sufficiency.report'
     _description = 'Description'
     _inherit = 'mail.thread'
-    _rec_name = 'emp_id'
+    _rec_name = ['score']
 
 
     emp_id = fields.Many2one('hr.employee',string="اسم الموظف", required= True)
