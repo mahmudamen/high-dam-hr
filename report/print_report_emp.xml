@@ -10,111 +10,84 @@
 					<br/>
 					<br/>
 					<br/>
-				<div class="right-block" style="height: auto;margin: 2px;padding:2px; width: auto; border: 5px solid black;">
-					<table style="height: auto;margin: 10px;padding:10px; width: auto; border: 1px solid black;">
-				<tbody >
-					<tr style="height: auto;margin: 2px;padding:2px; font-weight:bold; width: auto; border: 1px solid black;">
-						<td style="vertical-align: top;border: 1px solid black;">
-							<div style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px; font-size:16px">
+				<div class="right-block" style="height: 2px;margin: 2px;padding:2px; width: auto; ">
+					<div class="row" style="background:#E6E6FA">
+						<div style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px; font-size:16px">
 								<b>
 									اسم الموظف :<span t-field="o.name"/>
 								</b>
-							</div>
-						</td>
-						<td style="height: auto; width: auto;margin: 2px;padding:2px; border: 1px solid black; font-weight:bold;">
-							<div style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px; font-size:16px">
+						</div>
+						<div style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px; font-size:16px">
 								<b>
 									تاريخ الميلاد :<span t-field="o.birthday"/>
 								</b>
-							</div>
-						</td>
-					</tr>
-					<tr style="height: auto; width: auto;margin: 2px;padding:2px; border: 1px solid black; font-weight:bold;">
-						<td style="vertical-align: top;border: 1px solid black;">
-							<div style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px; font-size:16px">
+						</div>
+					</div>
+					<br/>
+					<div class="row" style="background:#E6E6FA">
+						<div style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px; font-size:16px">
 								<b>
 									تاريخ التعيين الفعلي :<span t-field="o.hiring_date"/>
 								</b>
-							</div>
-						</td>
-						<td style="height: auto; width: auto;margin: 2px;padding:2px; border: 1px solid black; font-weight:bold;">
-							<div style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px; font-size:16px">
+						</div>
+						<div style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px; font-size:16px">
 								<b>
 									التاريخ الفرضي :<span t-field="o.start_date"/>
 								</b>
-							</div>
-						</td>
-					</tr>
-
-					<tr style="height: auto; width: auto;margin: 2px;padding:2px; font-weight:bold; border: 1px solid black;">
-						<td style="vertical-align: top;border: 1px solid black;">
-							<div style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px; font-size:16px">
+						</div>
+					</div>
+					<br/>
+					<div class="row" style="background:#E6E6FA">
+						<div style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px; font-size:16px">
 								<b>
 									المؤهل :<span t-field="o.degree"/>
 								</b>
-							</div>
-						</td>
-						<td style="vertical-align: top;border: 1px solid black;">
-							<div style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px; font-size:16px">
+						</div>
+						<div style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px; font-size:16px">
 								<b>
 									الوظيفة :<span t-field="o.job_name"/>
 								</b>
-							</div>
-						</td>
-					</tr>
-
-					<tr style="height: auto; width: auto;margin: 2px;padding:2px; font-weight:bold; border: 1px solid black;">
-						<td style="vertical-align: top;border: 1px solid black;">
-							<div style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px; font-size:16px">
+						</div>
+					</div>
+					<br/>
+					<div class="row" style="background:#E6E6FA">
+						<div style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px; font-size:16px">
 								<b>
 									المجموعة الوظيفية :<span t-field="o.qualitative_group"/>
 								</b>
-							</div>
-						</td>
-						<td style="vertical-align: top;border: 1px solid black;">
-							<div style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px; font-size:16px">
+						</div>
+						<div style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px; font-size:16px">
 								<b>
 									المستوي الوظيفي : <span t-field="o.level_id"/>
 								</b>
-							</div>
-						</td>
-						<td style="vertical-align: top;border: 1px solid black;">
-							<div style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px; font-size:16px">
+						</div>
+						<div style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px; font-size:16px">
 								<b>
 									تاريخ الحصول عليها : <span t-field="o.level_date_got"/>
 								</b>
-							</div>
-						</td>
-					</tr>
-
-					<tr style="height: auto; width: auto;margin: 2px;padding:2px;font-weight:bold; auto; border: 1px solid black;">
-						<td style="vertical-align: top;border: 1px solid black;">
-							<div style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px; font-size:16px">
+						</div>
+					</div>
+					<br/>
+					<div class="row" style="background:#E6E6FA">
+						<div style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px; font-size:16px">
 								<b>
 									الموقف من التجنيد :<span t-field="o.military_status"/>
 								</b>
-							</div>
-						</td>
-					</tr>
-				</tbody>
-				</table>
-				<span/>
-					<br/>
-					<br/>
-					<br/>
-				<span/>
-					<table style="height: auto; width: auto;margin: 10px;padding:10px; ">
+						</div>
+					</div>
 
-						<tr style="height: auto; font-weight:bold; width: auto; ">
-							<td style="vertical-align: top;">
-								<div style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px; font-size:16px">
+				<span/>
+					<br/>
+					<br/>
+					<br/>
+				<span/>
+					<div class="row" style="background:#E6E6FA">
+						<div style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px; font-size:16px">
 									<b>
 										المختص
 									</b>
-								</div>
-							</td>
-						</tr>
-					</table>
+						</div>
+					</div>
 					<br/>
 					<br/>
 					<br/>
