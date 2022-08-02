@@ -2,3 +2,4 @@
 
 from . import hr_employee
 from . import sufficiency_report
+from . import hr_punch

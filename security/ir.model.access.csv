@@ -18,3 +18,7 @@ access_hr_report_line,hr.report.line,model_hr_report_line,base.group_user,1,1,1,
 access_hr_behavior_report_line,hr.behavior.report.line,model_hr_behavior_report_line,base.group_user,1,1,1,1
 
 access_hr_behavior_line,hr.behavior.line,model_hr_behavior_line,base.group_user,1,1,1,1
+
+access_hr_punch,hr.punch,model_hr_punch,base.group_user,1,1,1,1
+
+access_hr_punch_line,hr.punch.line,model_hr_punch_line,base.group_user,1,1,1,1
